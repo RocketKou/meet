@@ -26,7 +26,7 @@ class AddContentToIssuesTable extends Migration
     public function down()
     {
         Schema::table('issues', function (Blueprint $table) {
-            //
+            $table->dropColumn('content');
         });
     }
 }

@@ -25,7 +25,7 @@
 
         <div class="am-collapse am-topbar-collapse" id="collapse-head">
             <ul class="am-nav am-nav-pills am-topbar-nav">
-                <li><a href="issues_index.html">活动</a></li>
+                <li><a href="{{route('issues.index')}}">活动</a></li>
                 <li><a href="/about">关于</a></li>
             </ul>
 
@@ -62,5 +62,6 @@
 <!--<![endif]-->
 <script src="/assets/vendor/amazeui/js/amazeui.min.js"></script>
 <script src="/assets/js/common.js"></script>
+<script src="/assets/js/laravel.js"></script>
 </body>
 </html>
