@@ -15,6 +15,7 @@
         {{ method_field('PUT') }}
 
 	   <fieldset>
+           <input type="hidden" name="user_id" value="{{Auth::id()}}">
           <div class="am-form-group">
               <label>标题</label>
               <input type="text" placeholder="输入活动标题" name="title" value="{{$issue->title}}">

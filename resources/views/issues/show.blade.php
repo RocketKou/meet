@@ -5,17 +5,19 @@
 <div class="issue-heading">
     <div class="am-container">
         {{$issue->title}}
+        @if(Auth::check() && Auth::user() == $issue->user)
         <a href="{{route('issues.destroy',$issue->id)}}" data-method="delete" data-token="{{csrf_token()}}" data-confirm="Are you sure?" type="button" class="am-btn am-btn-danger am-radius am-btn-sm">Destroy</a>
         <a href="{{route('issues.edit',$issue->id)}}" type="button" class="am-btn am-btn-primary am-radius am-btn-sm">Edit</a>
+        @endif
     </div>
 </div>
 
 <div class="am-container">
     <ul class="am-comments-list am-comments-list-flip">
 
-        @foreach($issue->comments as $comment)
+        @foreach($comments as $comment)
         <li class="am-comment">
-            //通过邮箱找到用户头像，如果没有就默认
+            {{--通过邮箱找到用户头像，如果没有就默认--}}
             <img src="{{$comment->avatar()}}" alt="" class="am-comment-avatar" width="100" height="100">
             <div class="am-comment-main">
                 <header class="am-comment-hd">
@@ -30,6 +32,7 @@
 
     </ul>
 
+    @if(Auth::check())
     <form class="am-form" method="post" action="{{route('comments.store')}}">
         {{csrf_field()}}
         <input type="hidden" name="issue_id" value="{{$issue->id}}">
@@ -53,6 +56,7 @@
             </p>
         </fieldset>
     </form>
+    @endif
 </div>
 @endSection
 

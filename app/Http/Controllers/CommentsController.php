@@ -17,7 +17,7 @@ class CommentsController extends Controller
     public function store(Request $request)
     {
         Comment::create($request->all());
-        return back();
+        return back()->with('notice','评论成功');
     }
 
 }

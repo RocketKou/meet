@@ -20,7 +20,7 @@
                 <li class="am-g am-list-item-desced am-list-item-thumbed am-list-item-thumb-left">
                     <div class="am-u-sm-2 am-u-md-1 am-list-thumb">
                         <a href="{{route('issues.show',$issue->id)}}">
-                            <img src="/assets/img/avatar1.png" alt=""/>
+                            <img src="{{$issue->user->avatar()}}" alt=""/>
                         </a>
                     </div>
 
@@ -37,7 +37,7 @@
                     </div>
                     <div class="am-u-sm-3 am-u-md-2 issue-comment-count">
                         <span class="am-icon-comments"></span>
-                        <a href="{{route('issues.show',$issue->id)}}">2</a>
+                        <a href="{{route('issues.show',$issue->id)}}">{{$issue->comments->count()}}</a>
                     </div>
                 </li>
                 @endforeach

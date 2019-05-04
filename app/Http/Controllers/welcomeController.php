@@ -21,4 +21,5 @@ class welcomeController extends Controller
     public function about(){
         return view('welcome.about');
     }
+
 }

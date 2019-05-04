@@ -23,7 +23,7 @@
     </div>
 </div>
 
-@include('welcome._issue_list');
+@include('shared._issue_list');
 
 @endsection
 

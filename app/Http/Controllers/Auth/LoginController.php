@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -25,7 +26,19 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
+
+    /**
+     * 错误3次后
+     * @var string
+     */
+    protected $maxAttempts = '3';
+
+    /**
+     * 禁止登陆1个小时
+     * @var string
+     */
+    protected $decayMinutes = '60';
 
     /**
      * Create a new controller instance.
@@ -36,4 +49,30 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+    /**
+     * 重写AuthenticatesUsers里的validateLogin方法，增加验证码登陆
+     * @param Request $request
+     */
+    protected function validateLogin(Request $request)
+    {
+        $this->validate($request,[
+            'captcha' => 'required|captcha',
+            $this->username() => 'required|string',
+            'password' => 'required|string'
+        ]);
+    }
+
+    /**
+     * 重写AuthenticatesUsers里面的username方法，改变默认的邮箱登陆为username登陆
+     * Get the login username to be used by the controller.
+     *
+     * @return string
+     */
+    public function username()
+    {
+        return 'username';
+    }
+
+
 }

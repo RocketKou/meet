@@ -11,12 +11,10 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
-Route::get('/','WelcomeController@index');
-Route::get('/about','WelcomeController@about');
 
 /*//CRUD增加
 //create显示增加页面
@@ -37,14 +35,22 @@ Route::delete('/issues/{issue}','IssuesController@destroy')->name('issues.destro
 //CURD查，查询多条
 Route::get('/issues','IssuesController@index')->name('issues.index');*/
 
-Route::resource('issues','IssuesController');
-
-Route::post('comments/store','CommentsController@store',['only'=>'store'])->name('comments.store');
 
 
+    Route::get('/','WelcomeController@index');
+    Route::get('/about','WelcomeController@about');
+
+    Route::resource('issues','IssuesController');
+
+    Route::post('comments/store','CommentsController@store',['only'=>'store'])->name('comments.store');
 
 
 
+Auth::routes();
 
+Route::namespace('Auth')->prefix('auth/qq')->group(function () {
+    Route::get('/', 'SocialitesController@qq');
+    Route::get('callback', 'SocialitesController@callback');
+});
 
-
+//Route::get('/home', 'HomeController@index')->name('home');

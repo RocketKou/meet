@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Laravel Meetup</title>
+    <title>Laravel Meet</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no">
@@ -29,20 +29,46 @@
                 <li><a href="/about">关于</a></li>
             </ul>
 
-            <div class="am-topbar-right">
-                <a href="login.html" class="am-btn am-btn-secondary am-topbar-btn am-btn-sm">
-                    <span class="am-icon-user"></span> Login
-                </a>
-            </div>
+            @if (Auth::guest())
+                <div class="am-topbar-right">
+                    <a href="{{route('login')}}" class="am-btn am-btn-secondary am-topbar-btn am-btn-sm">
+                        <span class="am-icon-user"></span> Login
+                    </a>
+                </div>
 
-            <div class="am-topbar-right">
-                <a href="sign_up.html" class="am-btn am-btn-primary am-topbar-btn am-btn-sm">
-                    <span class="am-icon-pencil"></span> Sign Up
-                </a>
-            </div>
+                <div class="am-topbar-right">
+                    <a href="{{route('register')}}" class="am-btn am-btn-primary am-topbar-btn am-btn-sm">
+                        <span class="am-icon-pencil"></span> Sign Up
+                    </a>
+                </div>
+            @else
+                <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+                    <ul class="am-nav am-nav-pills am-topbar-nav am-topbar-right admin-header-list">
+                        <li class="am-dropdown" data-am-dropdown>
+                            <a class="am-btn-secondary am-dropdown-toggle" data-am-dropdown-toggle href="javascript:;">
+                                <span class="am-icon-user"></span> {{Auth::user()->name}}
+                                <span class="am-icon-caret-down"></span>
+                            </a>
+                            <ul class="am-dropdown-content">
+                                <li>
+                                    <a href="{{ url('/logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        <span class="am-icon-power-off"></span> 退出
+                                    </a>
+
+                                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                                        {{ csrf_field() }}
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            @endif
         </div>
     </div>
 </header>
+
+@include('shared._flash')
 
 @yield('content')
 
