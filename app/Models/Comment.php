@@ -12,6 +12,11 @@ class Comment extends Model
     }
     protected $fillable = ['issue_id','name','email','content'];
 
+    public function ccc()
+    {
+        Comment::query()->orderBy()->where();
+    }
+
     public function issue(){
         return $this->belongsTo('App\Models\Issue');
     }
