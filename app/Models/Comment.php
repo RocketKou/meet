@@ -8,7 +8,7 @@ class Comment extends Model
 {
     public function aaa()
     {
-
+        Comment::query()->toSql();
     }
     protected $fillable = ['issue_id','name','email','content'];
 
