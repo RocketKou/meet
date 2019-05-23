@@ -14,6 +14,7 @@ class Comment extends Model
     public function bbb()
     {
         Comment::find(1);
+        
     }
 
     protected $fillable = ['issue_id','name','email','content'];
@@ -21,7 +22,7 @@ class Comment extends Model
     public function ccc()
     {
         Comment::query()->orderBy()->where();
-        
+
     }
 
     public function issue(){
