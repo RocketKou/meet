@@ -10,6 +10,12 @@ class Comment extends Model
     {
         Comment::query()->toSql();
     }
+
+    public function bbb()
+    {
+        Comment::find(1);
+    }
+
     protected $fillable = ['issue_id','name','email','content'];
 
     public function issue(){
