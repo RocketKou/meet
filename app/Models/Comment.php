@@ -16,6 +16,11 @@ class Comment extends Model
         Comment::find(1);
     }
 
+    public function cccmeet()
+    {
+        Comment::find(1);
+    }
+
     protected $fillable = ['issue_id','name','email','content'];
 
     public function issue(){
