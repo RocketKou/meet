@@ -15,6 +15,7 @@ class Comment extends Model
     public function ccc()
     {
         Comment::query()->orderBy()->where();
+        
     }
 
     public function issue(){
