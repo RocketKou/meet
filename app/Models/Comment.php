@@ -17,6 +17,7 @@ class Comment extends Model
 
     }
 
+    
     public function cccmeet()
     {
         Comment::find(1);
