@@ -6,6 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
+    public function aaa()
+    {
+
+    }
     protected $fillable = ['issue_id','name','email','content'];
 
     public function issue(){
