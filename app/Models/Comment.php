@@ -26,8 +26,15 @@ class Comment extends Model
     ';
 
 
+
     public $dMeet2 = '
     这是开发者B的修改部分
+    测试问题四：
+    开发者A修改了Comment.php并commit，开发者C在dev上修改Comment.php，如何在C上合并A中修改的文件的问题
+    ';
+
+    public $dMeet = '
+    这是开发者A的修改部分
     测试问题四：
     开发者A修改了Comment.php并commit，开发者C在dev上修改Comment.php，如何在C上合并A中修改的文件的问题
     ';
