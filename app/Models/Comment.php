@@ -40,12 +40,22 @@ class Comment extends Model
     ';
 
 
+
     public $eMeet = '
     这是开发者A的修改版本
     测试问题四的补充
     开发者A修改Comment.php并commit+push到远端，开发者D的dev分支上修改同样的文件并commit，除了merge+pull+push的方式
     （即在dev上commit修改文件，切换到master分支merge合并，再pull拉取最新代码，解决冲突后commit+push推送远端），
     能否采用pull+merge+push的方式（即在dev上commit修改文件，切换到master分支pull获取远端代码，然后meger合并，最后push推送到远端的方式）
+    ';
+    
+    public $eMeet4 = '
+    这是开发者D的修改版本
+    测试问题四的补充
+    开发者A修改Comment.php并commit+push到远端，开发者D的dev分支上修改同样的文件并commit，除了merge+pull+push的方式ne
+    （即在dev上commit修改文件，切换到master分支merge合并，再pull拉取最新代码，解决冲突后commit+push推送远端），
+    能否采用pull+merge+push的方式
+    （即在dev上commit修改文件，切换到master分支pull获取远端代码，然后meger合并，最后push推送到远端的方式）
     ';
 
     protected $fillable = ['issue_id','name','email','content'];
