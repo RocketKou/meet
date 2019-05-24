@@ -25,6 +25,13 @@ class Comment extends Model
     此时远端已经是B的最新提交了，如果开发者A修改了没有pull就提交会怎样
     ';
 
+
+    public $dMeet2 = '
+    这是开发者B的修改部分
+    测试问题四：
+    开发者A修改了Comment.php并commit，开发者C在dev上修改Comment.php，如何在C上合并A中修改的文件的问题
+    ';
+
     protected $fillable = ['issue_id','name','email','content'];
 
 
