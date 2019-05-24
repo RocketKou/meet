@@ -6,35 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    public function aaa()
-    {
-        Comment::query()->toSql();
-    }
-
-    public function bbb()
-    {
-        Comment::find(1);
-
-    }
-
-    public function cccmeet()
-    {
-        Comment::find(1);
-        $a = 1;
-    }
-
-    public function dddmeet()
-    {
-        Comment::find(1);
-    }
 
     protected $fillable = ['issue_id','name','email','content'];
 
-    public function ccc()
-    {
-        Comment::query()->orderBy()->where();
-
-    }
 
     public function issue(){
         return $this->belongsTo('App\Models\Issue');
