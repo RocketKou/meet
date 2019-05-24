@@ -48,7 +48,7 @@ class Comment extends Model
     （即在dev上commit修改文件，切换到master分支merge合并，再pull拉取最新代码，解决冲突后commit+push推送远端），
     能否采用pull+merge+push的方式（即在dev上commit修改文件，切换到master分支pull获取远端代码，然后meger合并，最后push推送到远端的方式）
     ';
-    
+
     public $eMeet4 = '
     这是开发者D的修改版本
     测试问题四的补充
@@ -56,6 +56,10 @@ class Comment extends Model
     （即在dev上commit修改文件，切换到master分支merge合并，再pull拉取最新代码，解决冲突后commit+push推送远端），
     能否采用pull+merge+push的方式
     （即在dev上commit修改文件，切换到master分支pull获取远端代码，然后meger合并，最后push推送到远端的方式）
+    ';
+
+    public $fMeet = '
+    在开发者C已经修改了公用文件，且已经commit已修改文件的情况下，能否在dev分支上获取到协同开发者A提交的代码
     ';
 
     protected $fillable = ['issue_id','name','email','content'];
