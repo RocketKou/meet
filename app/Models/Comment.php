@@ -26,6 +26,13 @@ class Comment extends Model
     ';
 
 
+    public $dMeet2 = '
+    此处是开发者A的修改部分
+    测试问题四：
+    在测试问题三中，我们发现协同开发者A git pull获取远端提交的代码时不会像问题二当中B git pull获取远端代码那样产生冲突，
+    我猜测可能原因是A中git pull的远程代码包含了A上一次提交
+    ';
+
     protected $fillable = ['issue_id','name','email','content'];
 
 
