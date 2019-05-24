@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
 
+    public $aMeet = '测试问题一：此处是开发者A的修改部分';
+
+
     protected $fillable = ['issue_id','name','email','content'];
 
 
