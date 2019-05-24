@@ -6,36 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    public function aaa()
-    {
-        Comment::query()->toSql();
-    }
+    public $aMeet2 = '
+    测试问题一：
+    在开发者B已修改了共用文件，且未commit已修改的文件的情况下，协同开发者A【修改的代码】以及【新增的文件】是否会增加到本地
+    ';
 
-    public function bbb()
-    {
-        Comment::find(1);
-
-    }
-
-    
-    public function cccmeet()
-    {
-        Comment::find(1);
-        $a = 1;
-    }
-
-    public function dddmeet()
-    {
-        Comment::find(1);
-    }
+    public $bMeet2 = '
+    测试问题二：
+    在开发者B已修改了共用文件，且已经commit已修改的文件的情况下，协同开发者A【修改的代码】以及【新增的文件】是否会增加到本地
+    ';
 
     protected $fillable = ['issue_id','name','email','content'];
 
-    public function ccc()
-    {
-        Comment::query()->orderBy()->where();
-
-    }
 
     public function issue(){
         return $this->belongsTo('App\Models\Issue');
